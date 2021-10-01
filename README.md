@@ -1,10 +1,3 @@
 # covid-tracker
 It's helps to track covid cases
-
-About This Tracker
-This tracker provides the number of confirmed cases and deaths from novel coronavirus by country, the trend in confirmed case and death counts by country, and a global map showing which countries have confirmed cases and deaths. The data are drawn from the Johns Hopkins University (JHU) Coronavirus Resource Center’s COVID-19 Map and the World Health Organization’s (WHO) Coronavirus Disease (COVID-2019) situation reports.
-
-This tracker will be updated regularly, as new data are released.
-
-
-
+It gives us accurate and proficient data about our active and ongoing cases!![Screen-captures-of-the-HSE-Covid-Tracker-app](https://user-images.githubusercontent.com/53190535/135607685-cffac5c9-f18d-4974-a218-86917e7a9d5f.png)
