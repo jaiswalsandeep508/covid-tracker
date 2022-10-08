@@ -1,44 +1,33 @@
-import React from "react";
-import Cards from "./components/Cards.jsx"
-import Chart from "./components/Chart.jsx"
-import CountryPicker from "./components/CountryPicker.jsx";
-import { fetchData } from "../api/";
-import styles from "./App.module.css";
+import React, {useEffect, useState} from 'react'
+import {CountryPicker, Cards, Char} from './components'
+import styles from './App.module.css'
+import {fetchdata} from './api'
 
-class App extends React.Component {
-  state = {
-    data: {},
-    country: ""
-  };
-
-  async componentDidMount() {
-    const data = await fetchData();
-
-    this.setState({ data });
+function App () {
+  const [data, setdata] = useState({})
+  const [country, setCountry] = useState()
+  useEffect(() => {
+    const fetchingData = async() => {
+    const  fetchedData = await fetchdata()
+    setdata(fetchedData)
+   return data
   }
+  fetchingData()
+}, [])
 
-  handleCountryChange = async country => {
-    const data = await fetchData(country);
-
-    this.setState({ data, country: country });
-  };
-
-  render() {
-    const { data, country } = this.state;
-
-    const date = new Date();
-    const year = date.getFullYear();
-
-    return (
-      <div className={styles.container}>
-        <h1>COVID-19 Tracker</h1>
-        <Cards data={data} />
-        <CountryPicker handleCountryChange={this.handleCountryChange} />
-        <Chart data={data} country={country} />
-        <h4>© Copyright {year}: PRATHAM</h4>
-      </div>
-    );
-  }
+const handleChange = async(value) => {
+const fetchedData = await fetchdata(value)
+setdata(fetchedData)
+setCountry(value)
+}
+  return (
+    <div className={styles.container}>
+    <h1>Covid-19 Tracker</h1>
+      <Cards data={data} />
+      <CountryPicker handleChange={handleChange} />
+      <Char data={data} country = {country} />
+    </div>
+  );
 }
 
 export default App;
